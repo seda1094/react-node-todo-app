@@ -49,11 +49,11 @@ app.get("/tasks/edit/:id", async (req, res) => {
 });
 
 app.put("/tasks/edit", async (req, res) => {
-    // console.log(req);
+    console.log(req.body);
     try {
-        const { id } = req.body
-        delete req.body.id
-        const task = await Task.findById(id)
+        const { _id } = req.body
+        delete req.body._id
+        const task = await Task.findById(_id)
         Object.assign(task, {
             title: req.body.title,
             instruction: req.body.instruction
@@ -69,7 +69,7 @@ app.put("/tasks/edit", async (req, res) => {
 
 
 app.delete("/tasks/delete/:id", async (req, res) => {
-    // console.log(req.params.id);
+    console.log(req.params.id);
     try {
         await Task.deleteOne({
             _id: req.params.id
