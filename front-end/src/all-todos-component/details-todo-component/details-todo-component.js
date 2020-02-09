@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-export default class DetailsTodoComponent extends React.Component{
-    render(){
-        return(
-            <div>
-                <h1>DetailsTodoComponent</h1>
-            </div>
-        )
-    }
+export default class DetailsTodoComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.location.state.data;
+  }
+  render() {
+    return (
+      <div className="container">
+        <section className="details">
+          <h1>"{this.state.title}"</h1>
+          <p>{this.state.instruction}</p>
+        </section>
+      </div>
+    );
+  }
 }

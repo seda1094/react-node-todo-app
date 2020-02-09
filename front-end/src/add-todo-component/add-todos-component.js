@@ -9,14 +9,14 @@ export default class DetailsTodoComponent extends React.Component {
     }
   }
 
-  handleInputChange=(event)=> {
+  handleInputChange = (event) => {
     event.preventDefault();
-    this.setState({ 
-        [event.target.name]: event.target.value
-     })
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
-  handleSubmit=(event)=> {
+  handleSubmit = (event) => {
     event.preventDefault();
     const data = this.state
     console.log(data)
@@ -24,8 +24,9 @@ export default class DetailsTodoComponent extends React.Component {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
-      
+
     });
+    this.props.history.push('/edit')
   }
 
   render() {
@@ -46,7 +47,7 @@ export default class DetailsTodoComponent extends React.Component {
             onChange={this.handleInputChange}
           />
           <br />
-            <input type="submit" value="submit" className="button" />
+          <input type="submit" value="submit" className="button" />
         </form>
       </section>
     );

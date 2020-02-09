@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text&display=swap");
 
 * {
   padding: 0;
@@ -21,7 +20,6 @@ body,
   height: 100%;
   overflow: hidden;
   background-color: blueviolet;
-
 }
 .container {
   width: 100%;
@@ -42,8 +40,10 @@ body,
   align-items: center;
   justify-content: center;
 }
-
-.container .tasks_section{
+.details {
+  flex-direction: column;
+}
+.container .tasks_section {
   width: 100%;
   height: 100%;
   background-color: #12ff02;
@@ -65,8 +65,8 @@ input {
   font-size: 22px;
 }
 
-.button a:hover{
-  color: #12ff02;;
+.button a:hover {
+  color: #12ff02;
 }
 
 .button:hover {
