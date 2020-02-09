@@ -23,9 +23,8 @@ export default class DetailsTodoComponent extends React.Component {
     fetch("http://localhost:3333/tasks/add", {
       method: "post",
       headers: { "Content-Type": "application/json" },
-      body: {
-        data: JSON.stringify(data)
-      }
+      body: JSON.stringify(data)
+      
     });
   }
 

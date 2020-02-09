@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
 
-export default class ItemTodoComponent extends React.Component{
-    render(){
-        return(
-            <div>
-                <h1>ItemTodoComponent</h1>
-            </div>
-        )
-    }
-}
+const ItemTodoComponent = props => {
+    console.log(props.data);
+    
+  return (
+    <div>
+      <h1>{props.data.title}</h1>
+      <p>{props.data.instruction}</p>
+      <button>delete</button>
+      <button>edit</button>
+
+    </div>
+  );
+};
+
+export default ItemTodoComponent
