@@ -9,7 +9,7 @@ const deleteData = props => {
     headers: {
       "Content-Type": "application/json"
     }
-  });
+  }).then((res)=>window.location.reload())
 };
 const ItemTodoComponent = props => {
   const data = props.data;

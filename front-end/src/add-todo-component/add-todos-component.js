@@ -25,7 +25,7 @@ export default class DetailsTodoComponent extends React.Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
 
-    });
+    }).then(res=>window.location.reload())
     this.props.history.push('/edit')
   }
 

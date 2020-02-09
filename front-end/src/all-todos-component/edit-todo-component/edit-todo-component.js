@@ -23,7 +23,9 @@ export default class EditTodoComponent extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    });
+    }).then((res)=>{
+      window.location.href = "http://localhost:3000/"
+    })
   };
 
   render() {
