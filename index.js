@@ -71,8 +71,8 @@ app.put("/tasks/edit", async (req, res) => {
     });
     await task.save();
     res.status(201).send(task)
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e);
   }
 });
 
@@ -107,14 +107,14 @@ app.delete("/tasks/delete/:id", async (req, res) => {
       _id: req.params.id
     });
     res.redirect("/tasks");
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e);
   }
 });
 
 async function start() {
   const url = "mongodb+srv://seda1094:aaaa@cluster0-vzrkd.mongodb.net/todo";
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 3333;
   try {
     await mongoose.connect(url, {
       useUnifiedTopology: true,
