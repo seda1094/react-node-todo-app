@@ -9,7 +9,7 @@ const deleteData = props => {
     headers: {
       "Content-Type": "application/json"
     }
-  }).then((res)=>window.location.reload())
+  }).then(()=>window.location.reload())
 };
 const ItemTodoComponent = props => {
   const data = props.data;
@@ -19,7 +19,7 @@ const ItemTodoComponent = props => {
         to={{
           pathname: "/todo-detail/",
           state: {
-            data: data
+            data
           }
         }}
       >
@@ -30,7 +30,7 @@ const ItemTodoComponent = props => {
         to={{
           pathname: "/edit",
           state: {
-            data: data
+            data
           }
         }}
       >

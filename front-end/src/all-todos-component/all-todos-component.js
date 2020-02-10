@@ -15,8 +15,7 @@ export default class AllTodosComponent extends React.Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ data: data });
-        console.log(this.state);
+        this.setState({ data });
       });
   }
   render() {

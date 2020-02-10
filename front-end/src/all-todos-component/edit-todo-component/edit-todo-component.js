@@ -16,22 +16,16 @@ export default class EditTodoComponent extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const data = this.state;
-    console.log(data);
     fetch("http://localhost:3333/tasks/edit", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    }).then((res)=>{
-      window.location.href = "http://localhost:3000/"
-    })
+    }).then(()=>window.location.href = "http://localhost:3000/")
   };
 
   render() {
-    console.log(this.props.location.state);
-    console.log(this.state);
-
     return (
       <div className="container">
         <section className="create_section">

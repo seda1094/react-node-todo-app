@@ -2,11 +2,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const Task = require("./models/task");
 var cors = require("cors");
 
-app.use(cors());
+const Task = require("./models/task");
 
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -27,18 +28,6 @@ app.post("/tasks/add", async (req, res) => {
   });
   try {
     await task.save();
-    res.status(200).send(task);
-  } catch (e) {
-    console.log(e);
-  }
-});
-
-app.get("/tasks/edit/:id", async (req, res) => {
-  // console.log("sdfjkhk");
-  // console.log(req.params.id);
-  try {
-    // console.log("sendddd");
-    const task = await Task.findById(req.params.id);
     res.status(200).send(task);
   } catch (e) {
     console.log(e);
