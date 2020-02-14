@@ -15,17 +15,9 @@ const ItemTodoComponent = props => {
   const data = props.data;
   return (
     <div>
-      <Link
-        to={{
-          pathname: "/todo-detail/",
-          state: {
-            data
-          }
-        }}
-      >
+
         <h1>{data.title}</h1>
         <p>{data.instruction}</p>
-      </Link>
       <Link
         to={{
           pathname: "/edit",

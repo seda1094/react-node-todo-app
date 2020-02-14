@@ -91,3 +91,11 @@ input:focus {
   border-color: #ecf935;
   color: #3ae934;
 }
+
+.loading{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -14,7 +14,9 @@ app.use(bodyParser.json());
 app.get("/tasks", async (req, res) => {
   try {
     const tasks = await Task.find();
-    res.status(200).send(tasks);
+    setTimeout(function(){ 
+      res.status(200).send(tasks);
+     }, 3000);
   } catch (e) {
     console.log(e);
   }

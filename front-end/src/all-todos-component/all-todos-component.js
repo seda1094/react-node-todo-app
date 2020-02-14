@@ -1,32 +1,49 @@
 import React from "react";
 import ItemTodoComponent from "./item-todo-component/item-todo-component";
+import { connect } from "react-redux";
+import LoadingComponent from "../loading-component/loading-component";
+import { fetchTodos } from "../store/actions/todo";
 
-export default class AllTodosComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      data: []
-    };
-  }
+class AllTodosComponent extends React.Component {
 
   componentDidMount() {
-    fetch("http://localhost:3333/tasks")
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        this.setState({ data });
-      });
+    this.props.fetchTodos()
   }
   render() {
     return (
       <section className="tasks_section">
-        <div className="tasks">
-          {this.state.data.map((data, index) => {
+        {
+          this.props.loading 
+            ? <LoadingComponent />
+            :
+            <div className="tasks">
+              {this.props.todos.map((data, index) => {
+                return <ItemTodoComponent key={index} data={data} />;
+              })}
+            </div>
+        }
+
+        {/* <div className="tasks">
+          {this.props.todos.map((data, index) => {
             return <ItemTodoComponent key={index} data={data} />;
           })}
-        </div>
+        </div> */}
       </section>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    todos: state.todo.todos,
+    loading: state.todo.loading
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchTodos: () => dispatch(fetchTodos())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllTodosComponent)
