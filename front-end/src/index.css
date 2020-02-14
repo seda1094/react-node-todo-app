@@ -55,6 +55,11 @@ body,
   overflow: auto;
 }
 
+.container .tasks_section .task{
+  margin: 30px;
+  border: 5px dashed #7c9cb7
+}
+
 .container .tasks_section .tasks::-webkit-scrollbar {
   display: none;
 }
